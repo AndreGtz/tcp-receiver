@@ -4,10 +4,13 @@ const server = net.createServer(function(socket) {
   socket.write('Echo server\r\n');
   socket.pipe(socket);
 
-  socket.on('data', function(data) {
+  socket.on('data', (data) => {
     var response = data.toString().trim();
-
     console.log(response);
+    if (response.match(/.imei./)) {
+      socket.write("LOAD");
+    }
+
   });
 
   socket.on('end', function() {

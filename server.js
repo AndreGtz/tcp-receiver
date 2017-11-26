@@ -15,7 +15,8 @@ const server = net.createServer(function(socket) {
   });
 });
 
-server.on('error', () => {console.log(error)});
+server.on('error', (error) => {console.log(error)});
 
 server.listen(1313, '192.168.100.4');
 console.log('Listening at 192.168.100.4:1313');
+//https://gps-api-morelia.herokuapp.com/
